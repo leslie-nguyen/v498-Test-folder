@@ -17,7 +17,7 @@
         <waitForElementVisible selector="{{StorefrontSalesRuleCartCouponSection.couponField}}" stepKey="waitForCouponField2"/>
         <fillField userInput="{{coupon.code}}" selector="{{StorefrontSalesRuleCartCouponSection.couponField}}" stepKey="fillCouponField"/>
         <click selector="{{StorefrontSalesRuleCartCouponSection.applyButton}}" stepKey="clickApplyButton"/>
-        <wait time="5" stepKey="waitForPageLoad"/>
+        <waitForPageLoad stepKey="waitForPageLoad"/>
         <seeElement selector="{{CheckoutCartSummarySection.discountAmount}}" stepKey="verifyDiscountAmountDisplayed"/>
     </actionGroup>
 </actionGroups>

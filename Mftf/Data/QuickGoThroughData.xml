@@ -26,7 +26,7 @@
         <data key="attributeOption">Navy</data>
     </entity>
     <entity name="CheckoutFlowCouponCode" type="text">
-        <data key="code">999999testing999999</data>
+        <data key="code">99999testing99999</data>
     </entity>
     <entity name="CheckoutFlowGuestCustomerData" type="text">
         <data key="email">testmagentobss@gmail.com</data>
@@ -43,8 +43,8 @@
     </entity>
     <entity name="CheckoutFlowShippingAndPaymentMethodsName" type="quote">
         <data key="shippingMethodName">Free</data>
-        <data key="paymentMethodName1">Pay by Card (Stripe)</data>
-        <data key="paymentMethodName2">PayPal What is PayPal?</data>
+        <data key="stripePaymentMethod">Pay by Card (Stripe)</data>
+        <data key="paypalPaymentMethod">PayPal What is PayPal?</data>
     </entity>
     <entity name="CheckoutFlowCreditCartInformation" type="text">
         <data key="cardNumber">4242424242424242</data>

@@ -7,7 +7,7 @@
         <data key="cateListingUrl">/en_ca/mens-cycling-jerseys.html</data>
         <data key="shopTheLookUrl">/en_ca/mens-ss21-collection-shop-the-look.html</data>
         <data key="lookDetailUrl">/en_ca/mens-ss21-collection-shop-the-look-floriane-petunia-marinette-navy.html</data>
-        <data key="pdpUrl">/en_ca/men-cycling-jersey-floriane-petunia.html</data>
+        <data key="pdpUrl">/en_ca//men-cycling-jersey-floriane-petunia.html</data>
         <data key="laGazetteListUrl">/en_ca/la-gazette/</data>
         <data key="laGazettePostUrl">/en_ca/la-gazette/a-coastal-classico/</data>
         <data key="shopPageUrl">/en_ca/shops</data>
@@ -26,7 +26,7 @@
         <data key="attributeOption">Navy</data>
     </entity>
     <entity name="CheckoutFlowCouponCode1" type="text">
-        <data key="code">999999testing999999</data>
+        <data key="code">99999testing99999</data>
     </entity>
     <entity name="CheckoutFlowGuestCustomerData1" type="text">
         <data key="email">testmagentobss@gmail.com</data>
@@ -55,10 +55,6 @@
     <entity name="CheckoutFlowCustomerLogin1" type="text">
         <data key="email">testmagento321@gmail.com</data>
         <data key="password">Bss123@#</data>
-    </entity>
-    <entity name="PaypalSandboxLogin1" type="text">
-        <data key="paypalEmail">testmagento321@gmail.com</data>
-        <data key="paypalPassword">Bss123@#</data>
     </entity>
 
 </entities>

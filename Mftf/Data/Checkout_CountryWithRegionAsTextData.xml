@@ -26,7 +26,7 @@
         <data key="attributeOption">Navy</data>
     </entity>
     <entity name="CheckoutFlowCouponCode2" type="text">
-        <data key="code">999999testing999999</data>
+        <data key="code">99999testing99999</data>
     </entity>
     <entity name="CheckoutFlowGuestCustomerData2" type="text">
         <data key="email">testmagentobss@gmail.com</data>
@@ -56,9 +56,6 @@
         <data key="email">testmagento321@gmail.com</data>
         <data key="password">Bss123@#</data>
     </entity>
-    <entity name="PaypalSandboxLogin2" type="text">
-        <data key="paypalEmail">testmagento321@gmail.com</data>
-        <data key="paypalPassword">Bss123@#</data>
-    </entity>
+
 </entities>
 
