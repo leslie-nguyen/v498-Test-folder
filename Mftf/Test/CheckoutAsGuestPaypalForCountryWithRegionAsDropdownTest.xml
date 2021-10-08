@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="CheckoutAsGuestPaypalForCountryWithRegionAsDropdownTest">
+        <annotations>
+            <features value="Checkout as guest with Paypal"/>
+            <stories value="Checkout as guest with Paypal"/>
+            <description value="Checkout as guest with Paypal"/>
+            <severity value="MAJOR"/>
+            <testCaseId value="FLOW01"/>
+            <group value="CheckoutFlow"/>
+            <group value="CheckoutFlowCountryWithRegionAsDropdown"/>
+            <group value="CheckoutFlowCheckoutAsGuest"/>
+        </annotations>
+        <!--        Access Cate Listing page page-->
+        <actionGroup ref="AmOnPageVerifyJSErrorActionGroup" stepKey="accessPageAndVerifyJSError">
+            <argument name="PageUrl" value="{{QuickGoThroughData.cateListingUrl}}"/>
+        </actionGroup>
+        <actionGroup ref="CloseCookiePopupActionGroup" stepKey="closeCookiePopup"/>
+        <!--        Check product link -->
+        <actionGroup ref="VerifyFirstProductLinkInProductListingPageActionGroup" stepKey="verifyFirstProductLinkInCateListingPage"/>
+        <!--        Check add product to cart & verify in mini cart-->
+        <amOnPage url="{{CheckoutFlowProductData1.configurableUrl}}" stepKey="accessConfigurablePdp"/>
+        <waitForPageLoad stepKey="waitForProductPageLoad"/>
+        <actionGroup ref="AddConfigurableProductToCartActionGroup" stepKey="addConfigurablePrdToCart">
+            <argument name="attributeCode" value="{{CheckoutFlowProductData1.attributeCode}}"/>
+            <argument name="attributeOption" value="{{CheckoutFlowProductData1.attributeOption}}"/>
+        </actionGroup>
+        <grabTextFrom selector="{{ProductMainInfoSection.ProductPrice}}" stepKey="getProductPriceInPdp"/>
+        <actionGroup ref="VerifyMiniCartItemsActionGroup" stepKey="assertItemInMiniCart">
+            <argument name="productName" value="{{CheckoutFlowProductData1.productName}}"/>
+            <argument name="productPrice" value="{$getProductPriceInPdp}"/>
+            <argument name="productAttribute" value="{{CheckoutFlowProductData1.attributeName}}"/>
+            <argument name="productOption" value="{{CheckoutFlowProductData1.attributeOption}}"/>
+        </actionGroup>
+        <!--        Check redirect to Cart page-->
+        <conditionalClick selector="{{WishlistAccountCartIconsSection.MiniCartIcon}}" dependentSelector="{{StorefrontMinicartSection.blockMiniCart}}" visible="false" stepKey="openMiniCart"/>
+        <click selector="{{StorefrontMinicartSection.goToCheckout}}" stepKey="clickCheckoutButtonInMiniCart"/>
+        <waitForPageLoad stepKey="waitForCartPageLoad"/>
+        <seeInCurrentUrl url="/checkout/cart/" stepKey="seeCartLinkInCurrentUrl"/>
+        <!--        Check cart page display-->
+        <actionGroup ref="VerifyCartSummaryBlockCartTotalBlockAndCheckoutButtonActionGroup" stepKey="verifyCartSummaryCartTotalAndCheckoutButtonDisplayed"/>
+        <actionGroup ref="VerifyCartItemsActionGroup" stepKey="verifyCartItemInformation" >
+            <argument name="productName" value="{{CheckoutFlowProductData1.productName}}"/>
+            <argument name="productPrice" value="{$getProductPriceInPdp}"/>
+            <argument name="productAttribute" value="{{CheckoutFlowProductData1.attributeName}}"/>
+            <argument name="productOption" value="{{CheckoutFlowProductData1.attributeOption}}"/>
+        </actionGroup>
+        <!--        Enter coupon code-->
+        <grabTextFrom selector="{{CheckoutCartSummarySection.orderTotal}}" stepKey="grabTotalBeforeAppliedDiscount"/>
+        <actionGroup ref="StorefrontCancelAndApplyActionGroup" stepKey="enterCouponCode">
+            <argument name="coupon" value="CheckoutFlowCouponCode1"/>
+        </actionGroup>
+        <!--        Check redirect to checkout page-->
+        <click selector="{{CheckoutCartSummarySection.proceedToCheckout}}" stepKey="clickCheckoutButtonInCheckoutPage"/>
+        <!--        Check display checkout page - Shipping step, Filling Email, address form & proceed to Payment tep-->
+        <actionGroup ref="VerifyDisplayedCheckoutShippingStepActionGroup" stepKey="checkDisplayedCheckoutPageShippingStep"/>
+        <selectOption selector="{{CheckoutShippingSection.countryPhoneCode}}" userInput="{{CheckoutFlowCustomerAddressData1.phoneCode}}" stepKey="selectPhoneCode"/>
+        <actionGroup ref="GuestCheckoutFillingShippingAddressWithRegionAsDropdownActionGroup" stepKey="fillingEmailAndAddress">
+            <argument name="customerVar" value="CheckoutFlowGuestCustomerData1"/>
+            <argument name="customerAddressVar" value="CheckoutFlowCustomerAddressData1"/>
+            <argument name="shippingMethod" value="{{CheckoutFlowShippingAndPaymentMethodsName1.shippingMethodName}}"/>
+        </actionGroup>
+        <!--        Check payment step display-->
+        <actionGroup ref="VerifyDisplayedCheckoutPaymentStepActionGroup" stepKey="checkDisplayedCheckoutPagePaymentStep">
+            <argument name="stripePaymentMethod" value="{{CheckoutFlowShippingAndPaymentMethodsName1.stripePaymentMethod}}"/>
+            <argument name="paypalPaymentMethod" value="{{CheckoutFlowShippingAndPaymentMethodsName1.paypalPaymentMethod}}"/>
+        </actionGroup>
+        <!--        Click pay with Paypal-->
+        <click selector="{{CheckoutPaymentSection.paymentPaypal}}" stepKey="clickPaypal"/>
+        <waitForPageLoad time="3" stepKey="waitForPaypalButton"/>
+        <click selector="{{CheckoutPaymentSection.paymentPaypalButton}}" stepKey="clickPaypalCheckout"/>
+        <!--        Login Paypal sandbox account and verify if login succeeds-->
+        <actionGroup ref="PaypalSandboxActionGroup" stepKey="loginPaypalAccount">
+            <argument name="customerEmail" value="{{PaypalSandboxLogin1.paypalEmail}}"/>
+            <argument name="customerPwd" value="{{PaypalSandboxLogin1.paypalPassword}}"/>
+        </actionGroup>
+        <!--        Pay With Paypal -->
+        <scrollTo selector="{{PaypalSandboxPaymentSection.paypalPayNowButton}}" stepKey="scrollToPayNowButton"/>
+        <wait time="5" stepKey="waitForPaypalPaymentPageLoad"/>
+        <scrollTo selector="{{PaypalSandboxPaymentSection.paypalPayNowButton}}" stepKey="scrollToPayNowButtonAgain"/>
+        <click selector="{{PaypalSandboxPaymentSection.paypalPayNowButton}}" stepKey="clickPayNowButton"/>
+
+        <!--        Check display success page-->
+        <actionGroup ref="VerifyDisplayedSuccessPageActionGroup" stepKey="checkDisplayedSuccessPage"/>
+
+    </test>
+</tests>

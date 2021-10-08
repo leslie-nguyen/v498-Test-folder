@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+
+    <actionGroup name="VerifyDisplayedSuccessPageActionGroup">
+        <annotations>
+            <description>Check display order number in Success page - for all customers</description>
+        </annotations>
+
+        <waitForElement selector="{{CheckoutSuccessMainSection.success}}" stepKey="waitForMainContentSuccessPageDisplayed"/>
+        <seeInCurrentUrl url="{{CheckoutPage.url}}/onepage/success/" stepKey="assertSuccessPageUrl"/>
+        <seeElement selector="{{CheckoutSuccessMainSection.orderNumber22}}" stepKey="seeOrderNumberInPageContent"/>
+
+    </actionGroup>
+</actionGroups>
