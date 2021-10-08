@@ -43,8 +43,8 @@
     </entity>
     <entity name="CheckoutFlowShippingAndPaymentMethodsName" type="quote">
         <data key="shippingMethodName">Free</data>
-        <data key="stripePaymentMethod">Pay by Card (Stripe)</data>
-        <data key="paypalPaymentMethod">PayPal What is PayPal?</data>
+        <data key="paymentMethodName1">Pay by Card (Stripe)</data>
+        <data key="paymentMethodName2">PayPal What is PayPal?</data>
     </entity>
     <entity name="CheckoutFlowCreditCartInformation" type="text">
         <data key="cardNumber">4242424242424242</data>

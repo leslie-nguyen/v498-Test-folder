@@ -3,9 +3,9 @@
     <section name="CheckoutShippingSection">
         <element name="addressBlock" type="block" selector="#checkout-step-shipping"/>
         <element name="countryPhoneCode" type="select" selector="//select[contains(@name,'cafedu_phone_preffix')]"/>
-
         <element name="firstNameInPopup" type="input" selector=".control input[name=firstname]"/>
         <element name="lastNameInPopup" type="input" selector=".control input[name=lastname]"/>
+        <element name="proceedToPayment" selector="main .button.action.continue.primary" type="button"/>
     </section>
 </sections>
 

@@ -44,8 +44,8 @@
     </entity>
     <entity name="CheckoutFlowShippingAndPaymentMethodsName2" type="quote">
         <data key="shippingMethodName">Free</data>
-        <data key="stripePaymentMethod">Pay by Card (Stripe)</data>
-        <data key="paypalPaymentMethod">PayPal What is PayPal?</data>
+        <data key="paymentMethodName1">Pay by Card (Stripe)</data>
+        <data key="paymentMethodName2">PayPal What is PayPal?</data>
     </entity>
     <entity name="CheckoutFlowCreditCartInformation2" type="text">
         <data key="cardNumber">4242424242424242</data>
@@ -56,6 +56,9 @@
         <data key="email">testmagento321@gmail.com</data>
         <data key="password">Bss123@#</data>
     </entity>
-
+    <entity name="PaypalSandboxLogin2" type="text">
+        <data key="paypalEmail">testmagento321@gmail.com</data>
+        <data key="paypalPassword">Bss123@#</data>
+    </entity>
 </entities>
 

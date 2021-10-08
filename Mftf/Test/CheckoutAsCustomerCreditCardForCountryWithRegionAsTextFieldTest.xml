@@ -74,11 +74,11 @@
         </actionGroup>
         <!--        Check payment step display-->
         <actionGroup ref="VerifyDisplayedCheckoutPaymentStepActionGroup" stepKey="checkDisplayedCheckoutPagePaymentStep">
-            <argument name="stripePaymentMethod" value="{{CheckoutFlowShippingAndPaymentMethodsName2.stripePaymentMethod}}"/>
-            <argument name="paypalPaymentMethod" value="{{CheckoutFlowShippingAndPaymentMethodsName2.paypalPaymentMethod}}"/>
+            <argument name="paymentMethodName1" value="{{CheckoutFlowShippingAndPaymentMethodsName2.paymentMethodName1}}"/>
+            <argument name="paymentMethodName2" value="{{CheckoutFlowShippingAndPaymentMethodsName2.paymentMethodName2}}"/>
         </actionGroup>
         <!--        Fill Credit card form-->
-        <click selector="{{CheckoutPaymentSection.paymentMethodByName(CheckoutFlowShippingAndPaymentMethodsName2.stripePaymentMethod)}}" stepKey="selectStripe"/>
+        <click selector="{{CheckoutPaymentSection.paymentMethodByName(CheckoutFlowShippingAndPaymentMethodsName2.paymentMethodName1)}}" stepKey="selectStripe"/>
         <actionGroup ref="StripeFillCreditCartFormActionGroup" stepKey="fillCreditCardForm" >
             <argument name="cardNumber" value="{{CheckoutFlowCreditCartInformation2.cardNumber}}"/>
             <argument name="cardExpire" value="{{CheckoutFlowCreditCartInformation2.cardExpire}}"/>
